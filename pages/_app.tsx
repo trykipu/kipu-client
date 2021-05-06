@@ -1,4 +1,12 @@
-function MyApp({ Component, pageProps }) {
+import { NextComponentType, GetStaticProps } from 'next';
+
+function MyApp({
+  Component,
+  pageProps,
+}: {
+  Component: NextComponentType;
+  pageProps: GetStaticProps;
+}) {
   return <Component {...pageProps} />;
 }
 

@@ -1,4 +1,6 @@
+import { ApolloProvider } from '@apollo/client';
 import { NextComponentType, GetStaticProps } from 'next';
+import client from '../apollo-client';
 
 function MyApp({
   Component,
@@ -7,7 +9,11 @@ function MyApp({
   Component: NextComponentType;
   pageProps: GetStaticProps;
 }) {
-  return <Component {...pageProps} />;
+  return (
+    <ApolloProvider client={client}>
+      <Component {...pageProps} />
+    </ApolloProvider>
+  );
 }
 
 export default MyApp;
